@@ -1,0 +1,120 @@
+// Version: 4.0.0
+type AccessControlState__890066778 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__386906547<Principal, UserRole__83612993>
+  };
+type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type DishCategory__439856838 = {#boissons; #desserts; #plats};
+type DishCategory__496876295 = {#boissons; #desserts; #plats};
+type DishId__471626635 = Nat;
+type Dish__305523092 =
+  {
+    category : DishCategory__496876295;
+    description : Text;
+    id : DishId__471626635;
+    imageRef : Text;
+    name : Text;
+    popular : Bool;
+    priceDt : Nat;
+    tags : [Text]
+  };
+type Dish__445455284 =
+  {
+    category : DishCategory__439856838;
+    description : Text;
+    id : Nat;
+    imageRef : Text;
+    name : Text;
+    popular : Bool;
+    priceDt : Nat;
+    tags : [Text]
+  };
+type ExternalBlob__220559234 = Blob;
+type GalleryImageId__389553737 = Nat;
+type GalleryImage__549009687 =
+  {blob : Blob; createdAt : Int; id : Nat; name : Text};
+type GalleryImage__831157245 =
+  {
+    blob : ExternalBlob__220559234;
+    createdAt : Int;
+    id : GalleryImageId__389553737;
+    name : Text
+  };
+type Internal__161573640<K, V> =
+  {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
+type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type List__1004628775<T> =
+  {
+    var blockIndex : Nat__58649523;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__58649523
+  };
+type List__89170296<T> = List__1004628775<T>;
+type Map__13625999<K, V> =
+  {var root : Node__430031793<K, V>; var size : Nat__58649523};
+type Map__386906547<K, V> = Map__670138087<K, V>;
+type Map__670138087<K, V> = Map__13625999<K, V>;
+type Nat__58649523 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__719602899 =
+  {
+    accessControlState : AccessControlState__890066778;
+    dishes : List__89170296<Dish__445455284>;
+    galleryImages : List__89170296<GalleryImage__549009687>;
+    reservations : List__89170296<Reservation__848333927>
+  };
+type Node__430031793<K, V> =
+  {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActor__280460137 = {};
+type ReservationId__253296045 = Nat;
+type Reservation__71818647 =
+  {
+    createdAt : Int;
+    date : Text;
+    id : ReservationId__253296045;
+    message : Text;
+    name : Text;
+    partySize : Nat;
+    time : Text
+  };
+type Reservation__848333927 =
+  {
+    createdAt : Int;
+    date : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    partySize : Nat;
+    time : Text
+  };
+type UserRole__83612993 = {#admin; #guest; #user};
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20260906_120000" : (_old : OldActor__280460137) -> NewActor__719602899
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__386906547<Principal, UserRole__91647283>
+    };
+  stable dishes :
+    {
+      var blockIndex : Nat__58649523;
+      var blocks : [var [var ?Dish__305523092]];
+      var elementIndex : Nat__58649523
+    };
+  stable galleryImages :
+    {
+      var blockIndex : Nat__58649523;
+      var blocks : [var [var ?GalleryImage__831157245]];
+      var elementIndex : Nat__58649523
+    };
+  stable reservations :
+    {
+      var blockIndex : Nat__58649523;
+      var blocks : [var [var ?Reservation__71818647]];
+      var elementIndex : Nat__58649523
+    }
+};

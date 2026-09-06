@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: monospace;
+    --radius: 1.25rem;
+
+    --background: 0.965 0.02 78;
+    --foreground: 0.22 0.035 45;
+    --card: 0.99 0.012 80;
+    --card-foreground: 0.22 0.035 45;
+    --popover: 0.99 0.012 80;
+    --popover-foreground: 0.22 0.035 45;
+
+    --primary: 0.5 0.13 32;
+    --primary-foreground: 0.97 0.01 32;
+
+    --secondary: 0.86 0.045 120;
+    --secondary-foreground: 0.26 0.05 120;
+
+    --muted: 0.93 0.02 78;
+    --muted-foreground: 0.5 0.03 55;
+
+    --accent: 0.64 0.14 72;
+    --accent-foreground: 0.97 0.01 72;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.97 0.01 25;
+
+    --border: 0.87 0.025 78;
+    --input: 0.87 0.025 78;
+    --ring: 0.5 0.13 32;
+
+    --chart-1: 0.5 0.13 32;
+    --chart-2: 0.64 0.14 72;
+    --chart-3: 0.55 0.09 120;
+    --chart-4: 0.7 0.12 60;
+    --chart-5: 0.4 0.1 30;
+
+    --sidebar: 0.985 0.012 80;
+    --sidebar-foreground: 0.22 0.035 45;
+    --sidebar-primary: 0.5 0.13 32;
+    --sidebar-primary-foreground: 0.97 0.01 32;
+    --sidebar-accent: 0.93 0.02 78;
+    --sidebar-accent-foreground: 0.26 0.035 45;
+    --sidebar-border: 0.87 0.025 78;
+    --sidebar-ring: 0.5 0.13 32;
+  }
+
+  .dark {
+    --background: 0.15 0.02 50;
+    --foreground: 0.93 0.015 60;
+    --card: 0.19 0.022 50;
+    --card-foreground: 0.93 0.015 60;
+    --popover: 0.21 0.022 50;
+    --popover-foreground: 0.93 0.015 60;
+
+    --primary: 0.72 0.15 45;
+    --primary-foreground: 0.15 0.02 45;
+
+    --secondary: 0.24 0.03 120;
+    --secondary-foreground: 0.85 0.03 120;
+
+    --muted: 0.23 0.02 50;
+    --muted-foreground: 0.55 0.02 55;
+
+    --accent: 0.78 0.14 75;
+    --accent-foreground: 0.15 0.02 75;
+
+    --destructive: 0.62 0.2 25;
+    --destructive-foreground: 0.93 0.01 25;
+
+    --border: 0.29 0.02 50;
+    --input: 0.29 0.02 50;
+    --ring: 0.72 0.15 45;
+
+    --chart-1: 0.72 0.15 45;
+    --chart-2: 0.78 0.14 75;
+    --chart-3: 0.6 0.1 120;
+    --chart-4: 0.8 0.12 60;
+    --chart-5: 0.6 0.12 30;
+
+    --sidebar: 0.19 0.022 50;
+    --sidebar-foreground: 0.93 0.015 60;
+    --sidebar-primary: 0.72 0.15 45;
+    --sidebar-primary-foreground: 0.15 0.02 45;
+    --sidebar-accent: 0.23 0.02 50;
+    --sidebar-accent-foreground: 0.85 0.02 60;
+    --sidebar-border: 0.29 0.02 50;
+    --sidebar-ring: 0.72 0.15 45;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(120deg, oklch(0.64 0.14 72), oklch(0.5 0.13 32));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, oklch(0.64 0.14 72), oklch(0.5 0.13 32));
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(
+      180deg,
+      oklch(0.99 0.012 80),
+      oklch(0.95 0.02 78)
+    );
+  }
+
+  .arch {
+    border-radius: 999px 999px 1.5rem 1.5rem;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+}
